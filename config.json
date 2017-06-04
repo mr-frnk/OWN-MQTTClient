@@ -1,0 +1,50 @@
+{
+	"bridge": {
+		"name": "Homebridge",
+		"username": "CC:22:3D:E3:CE:30",
+		"port": 51826,
+		"pin": "031-45-154"
+	},
+
+	"description": "This is an example configuration file for garage door",
+
+	"platforms": [],
+      
+    
+	"accessories": [
+   
+            {
+            "accessory": "Mqttgarage",
+            "name": "Garage Poort",
+            "url": "mqtt://192.168.1.45:1883",
+            "username": "",
+            "password": "",
+            "caption": "Garageport",
+            "topics": {
+                "statusCurrent": "frnk/hu1s/garage/garagepoort/CurrentDoorState",
+                "statusTarget": "frnk/hu1s/garage/garagepoort/TargetDoorState"
+		    }
+	   },
+        
+    
+       {
+        	"accessory": "mqttswitch2",
+            "name": "bureau spots",
+            "url": "mqtt://192.168.1.45:1883",
+			"username": "",
+            "password": "",
+ 			"caption": "Bureau",
+ 			"topics": {
+ 				"statusGet": "frnk/hu1s/status/1/32",
+ 				"statusSet": "frnk/hu1s/command/1/32"
+ 			},
+			"onValue": "on",
+			"offValue": "off",
+            "statusCmd": "getStatus",
+		    "integerValue": "TRUE"
+ 			
+    	}
+    
+    
+    ]
+}
